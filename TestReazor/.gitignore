@@ -1,0 +1,8 @@
+bin/
+obj/
+obj/Debug/
+packages/
+Debug/
+.vs/
+*.suo
+*.bak
