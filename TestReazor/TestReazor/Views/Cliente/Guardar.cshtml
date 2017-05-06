@@ -1,0 +1,19 @@
+﻿@using TestReazor.Models;
+
+@model Cliente
+
+@{
+    ViewBag.Title = "Guardar";
+}
+
+<h2>Guardar</h2>
+
+<form action="~/Home/Index">
+    <fieldset>
+        <legend>Informacion</legend>
+        <p>El siguiente Cliente se creará <h4 style="color:coral">@Model.Apellido, @Model.Nombre</h4></p>
+        <br />
+        <input type="submit" value="Aceptar" />
+    </fieldset>
+</form>
+

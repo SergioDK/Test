@@ -1,0 +1,16 @@
+﻿@model TestReazor.ViewModel.ProductoViewModel
+
+@{
+    ViewBag.Title = "Crear";
+}
+
+<h2>Crear</h2>
+
+@using (Html.BeginForm("Producto", "Guardar"))
+{
+    @Html.ValidationSummary();
+    @Html.EditorForModel();
+    <input type="submit" value="Crear" />
+}
+
+

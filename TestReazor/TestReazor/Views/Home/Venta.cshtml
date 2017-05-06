@@ -1,0 +1,15 @@
+﻿@using TestReazor.ViewModel
+
+@model Venta
+
+@{
+    ViewBag.Title = "Venta";
+}
+
+<h2>Venta</h2>
+
+
+@for (int i = 0; i < Model.ListaCliente.Count; i++)
+{
+    <p>cliente numero: @i @Model.ListaCliente[i].Apellido @Model.ListaCliente[i].Nombre</p>
+}
