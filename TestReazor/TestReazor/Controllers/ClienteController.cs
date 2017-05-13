@@ -71,5 +71,18 @@ namespace TestReazor.Controllers
             gescliente.Eliminar(apellido,nombre);
             return RedirectToAction("Listar");
         }
+
+        public ActionResult Detalle(int id)
+        {
+            var cliente = gescliente.BuscarPorId(id);
+            return View(cliente.ConvertirAViewModel());
+        }
+
+        [HttpPost]
+        public ActionResult Modificar(Cliente cliente)
+        {
+            gescliente.Modificar(cliente);
+            return RedirectToAction("Listar");
+        }
     }
 }

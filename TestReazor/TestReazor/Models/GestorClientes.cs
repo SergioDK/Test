@@ -33,5 +33,15 @@ namespace TestReazor.Models
         {
             repoCliente.Eliminar(apellido, nombre);
         }
+
+        public Cliente BuscarPorId(int id)
+        {
+            return repoCliente.BuscarPorId(id);
+        }
+
+        public void Modificar(Cliente cliente)
+        {
+            repoCliente.Modificar(cliente);
+        }
     }
 }

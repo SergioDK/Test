@@ -231,6 +231,7 @@
     <Content Include="Views\Cliente\Listar.cshtml" />
     <Content Include="Views\Cliente\Buscar.cshtml" />
     <Content Include="Views\Cliente\Busqueda.cshtml" />
+    <Content Include="Views\Cliente\Detalle.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

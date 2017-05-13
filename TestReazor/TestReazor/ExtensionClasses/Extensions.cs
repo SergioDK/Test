@@ -39,5 +39,18 @@ namespace TestReazor.ExtensionClasses
 
             return listaDeViewModel;
         }
+
+        public static ClienteViewModel ConvertirAViewModel(this Cliente clienteModelo)
+        {
+            var clienteViewModel = new ClienteViewModel
+            {
+                Apellido = clienteModelo.Apellido,
+                Nombre = clienteModelo.Nombre,
+                Edad = clienteModelo.Edad,
+                Id = clienteModelo.Id
+            };
+
+            return clienteViewModel;
+        }
     }
 }

@@ -40,6 +40,21 @@ namespace TestReazor.Models.AccesoDatos
             tallerDb.SaveChanges();
         }
 
+        public void Modificar(Cliente cliente)
+        {
+            var clienteParaModificar = tallerDb.Cliente.First(x => x.Id == cliente.Id);
+
+            clienteParaModificar.Apellido = cliente.Apellido;
+            clienteParaModificar.Nombre = cliente.Nombre;
+            clienteParaModificar.Edad = cliente.Edad;
+            tallerDb.SaveChanges();
+        }
+
+        public Cliente BuscarPorId(int id)
+        {
+            return tallerDb.Cliente.First(x => x.Id == id);
+        }
+
         public List<Cliente> Buscar(string cliente)
         {
             return tallerDb.Cliente.Where(x => x.Apellido.Contains(cliente) || x.Nombre.Contains(cliente)).ToList();

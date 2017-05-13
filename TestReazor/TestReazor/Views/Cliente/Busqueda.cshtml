@@ -9,6 +9,7 @@
               <th>Nombre</th>
               <th></th>
               <th></th>
+              <th></th>
           </tr>
       </thead>
    <tbody>
@@ -19,6 +20,7 @@
                <td>@cliente.Nombre</td>
                <td>@Html.ActionLink("Eliminar","EliminarPorApyNom", new { apellido = @cliente.Apellido, nombre = @cliente.Nombre })</td>
                <td>@Html.ActionLink("Eliminar", "EliminarPorId", new { id = cliente.Id })</td>
+               <td>@Html.ActionLink("Modificar", "Detalle", new { id = cliente.Id })</td>
            </tr>
        }
    </tbody>
