@@ -43,7 +43,7 @@ namespace TestReazor.Controllers
             {
                 return View("Crear");
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Listar");
         }
 
         public ActionResult Buscar()
