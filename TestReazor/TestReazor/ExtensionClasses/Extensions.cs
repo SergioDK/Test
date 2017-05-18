@@ -52,5 +52,50 @@ namespace TestReazor.ExtensionClasses
 
             return clienteViewModel;
         }
+
+        public static Producto convertirAModelo(this ProductoViewModel productoviewmodel)
+        {
+            var modeloproducto = new Producto
+            {
+                Nombre = productoviewmodel.Nombre,
+                Precio = productoviewmodel.Precio,
+                Cantidad = productoviewmodel.Cantidad
+            };
+
+            return modeloproducto;
+        }
+
+        public static List<ProductoViewModel> ConvertirAViewModel(this List<Producto> productos)
+        {
+            var listaDeViewModel = new List<ProductoViewModel>();
+
+            foreach (var productoDeModel in productos)
+            {
+                var productoViewModel = new ProductoViewModel
+                {
+                    Id = productoDeModel.Id,
+                    Nombre = productoDeModel.Nombre,
+                    Precio = productoDeModel.Precio,
+                    Cantidad = productoDeModel.Cantidad
+                };
+
+                listaDeViewModel.Add(productoViewModel);
+            }
+
+            return listaDeViewModel;
+        }
+
+        public static ProductoViewModel ConvertirAViewModel(this Producto productoModelo)
+        {
+            var productoViewModel = new ProductoViewModel
+            {
+                Nombre = productoModelo.Nombre,
+                Precio = productoModelo.Precio,
+                Cantidad = productoModelo.Cantidad,
+                Id = productoModelo.Id
+            };
+
+            return productoViewModel;
+        }
     }
 }

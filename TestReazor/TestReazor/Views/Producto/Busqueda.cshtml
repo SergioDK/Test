@@ -1,0 +1,29 @@
+﻿@model List<TestReazor.ViewModel.ProductoViewModel>
+
+
+<h2>Busqueda</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Descripcion Producto</th>
+            <th>Precio</th>
+            <th>Cantidad</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var producto in Model)
+        {
+            <tr>
+                <td>@producto.Nombre</td>
+                <td>@producto.Precio</td>
+                <td>@producto.Cantidad</td>
+                <td>@Html.ActionLink("Eliminar", "EliminarPorId", new { id = producto.Id })</td>
+                <td>@Html.ActionLink("Modificar", "Detalle", new { id = producto.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

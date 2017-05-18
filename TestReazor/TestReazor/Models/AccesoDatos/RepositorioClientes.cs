@@ -60,13 +60,5 @@ namespace TestReazor.Models.AccesoDatos
             return tallerDb.Cliente.Where(x => x.Apellido.Contains(cliente) || x.Nombre.Contains(cliente)).ToList();
         }
 
-        public int ObtenerId(Cliente cliente)
-        {
-            //var id = tallerDb.Cliente.Select(x=> x.Id);
-            //tallerDb.Cliente.Select(z => z.Id);
-            var id = tallerDb.Cliente.FirstOrDefault(x => x.Apellido == cliente.Apellido).Id;
-
-            return Convert.ToInt32(id);
-        }
     }
 }

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 using TestReazor.Models;
 using TestReazor.ViewModel;
+using TestReazor.ExtensionClasses;
 
 namespace TestReazor.Controllers
 {
@@ -18,6 +19,13 @@ namespace TestReazor.Controllers
             return View();
         }
 
+        public ActionResult Listar()
+        {
+            var producto = gestProd.Listar();
+
+            return View(producto.ConvertirAViewModel());
+        }
+
         public ActionResult Crear()
         {
             return View();
@@ -26,20 +34,46 @@ namespace TestReazor.Controllers
         [HttpPost]
         public ActionResult Guardar(ProductoViewModel productoviewmodel)
         {
-            var modeloproducto = new Producto();
-            modeloproducto.Nombre = productoviewmodel.Nombre;
-            modeloproducto.Cantidad = productoviewmodel.Cantidad;
-            modeloproducto.Precio = (decimal)productoviewmodel.Precio;
 
             if (ModelState.IsValid)
             {
-                gestProd.Guardar(modeloproducto);
+                gestProd.Guardar(productoviewmodel.convertirAModelo());
             }
             else
             {
                 return View("Crear");
             }
-            return View("Index");
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Buscar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Busqueda(string producto)
+        {
+            var productos = gestProd.Buscar(producto);
+            return View(productos.ConvertirAViewModel());
+        }
+
+        public ActionResult EliminarPorId(int id)
+        {
+            gestProd.Eliminar(id);
+            return RedirectToAction("Listar");
+        }
+
+        public ActionResult Detalle(int id)
+        {
+            var productos = gestProd.BuscarPorId(id);
+            return View(productos.ConvertirAViewModel());
+        }
+
+        public ActionResult Modificar(Producto producto)
+        {
+            gestProd.Modificar(producto);
+            return RedirectToAction("Listar");
         }
     }
 }
